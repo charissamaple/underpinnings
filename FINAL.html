@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+        <meta charset="utf-8">
+        <title>Underpinnings</title>
+        <link rel="icon" href="images/question.png" type="image/png">
+
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+    <body>
+        <div id="map"></div>
+
+        <div id="overlay">
+        <div id="main-container" style="z-index: 5;">
+            <h1>Where have you experienced loss?</h1>
+            <div id="question-popup">
+                <p><strong>What should I search for?</strong></p>
+                <p>Think of a place that reminds you of loss. You will have an opportunity to write about your experience on the next screen.</p>
+                <p>Sharing your story will add a pin to our map, which will contribute to our global archive. Please share as much as you feel comfortable, for you will be given the option to remain anonymous.</p>
+                <p>To begin, enter an address and press the search icon.</p>
+            </div>
+            <div class="footer">
+                <img src="images/logo-mini.png" alt="underpinnings-logo" width="120">
+                <p>We invite you to reflect on the losses underpinning the story of your life. Write about them, pin them, and share them.</p>
+            </div>
+        </div>
+
+<!-- QUESTION BOXES -->
+        <div class="prompt-containers">
+            <form id='MyForm' action="https://script.google.com/macros/s/AKfycbz6hbWXuTxVDiN8vNilXBNA74KGnjHbYfRphnI8yuedDDcAqvA/exec">
+              <div class="mySlides" id="search-container" style="z-index: 10;">
+                  <input id="searchBox" name="searchBox" class="controls, pac-card" type="text" placeholder="Search">
+
+                  <div id="searchBox-controls">
+                      <div id="search-icon" onclick="plusDivs(1)"></div>
+                      <div id="question" onclick="showQuestion()"></div>
+                  </div>
+              </div>
+
+              <script>
+                window.addEventListener('keydown',function(e){if(e.keyIdentifier=='U+000A'||e.keyIdentifier=='Enter'||e.keyCode==13){if(e.target.nodeName=='INPUT'&&e.target.type=='text'){e.preventDefault();return false;}}},true);
+                </script>
+
+                <div class="myDiv">
+                    <div class="mySlides" id="whatCall" style="z-index: 15;">
+                        <h3> What do you call this place? </h3>
+                        <h4> Is it your home? School? A park you visited as a child? </h4>
+                        <input id="place" type="text" name="place" placeholder="Ex. Home">
+                        <div class="prompt-controls">
+                            <div onclick="plusDivs(-1)" class="back"> &#10094;
+                            </div>
+                            <div onclick="plusDivs(1)" class="forward"> &#10095;
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mySlides" id="shareStory">
+                        <h3>Share your story</h3>
+                        <input id="story" type="text" name="story" placeholder="Describe your experience of loss. What happened? How did you feel?">
+                        <div class="prompt-controls">
+                            <div onclick="plusDivs(-1)" class="back"> &#10094;
+                            </div>
+                            <div onclick="plusDivs(1)" class="forward"> &#10095;
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mySlides" id="whyShare">
+                        <h3>Why are you sharing this story?</h3>
+                        <input id="why" type="text" name="why" placeholder="There is something to be taken away from every emotion and every life experience. Have you gained a new appreciation for what you’ve lost? Have you grown stronger? Kinder?">
+                        <div class="prompt-controls">
+                            <div onclick="plusDivs(-1)" class="back"> &#10094;
+                            </div>
+                            <div onclick="plusDivs(1)" class="forward"> &#10095;
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mySlides" id="wouldName">
+                        <h3> Would you like to leave a name?</h3>
+                        <h4>Leave your name, a nickname, initials, or nothing at all.</h4>
+                        <input id="name" type="text" name="name" placeholder="">
+                        <button onclick="showWindow()">
+                            <input id="submit" type="submit" value="Submit" onclick="openWindow()">
+                        </button>
+                        <div class="prompt-controls">
+                            <div onclick="plusDivs(-1)" class="back"> &#10094;
+                            </div>
+                            <div onclick="plusDivs(1)" class="forward"> &#10095;
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </form>
+
+            
+        </div>
+
+<!-- TOGGLE MODE -->
+        <div class="toggle-mode">
+            <a href="FINAL.html"><div id="contribute">Contribute</div></a>
+            <a href="EXPLORE.html"><div id="explore">Explore</div></a>
+        </div>
+
+        </div>
+
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA86pxJKR1cxbX-YksyKhmk3mrJZXRG10M&libraries=places&callback=initAutocomplete"
+            async defer></script>
+
+
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBbEFhlN5OP-mrz7d5L9Dvr2x-mNhFxmCU&libraries=places&callback=initAutocomplete"
+            async defer></script>
+
+<!-- 
+            <script>
+                // Initialize and add the map
+                function initMap() {
+                  // The location of Uluru
+                  var vancouver = {lat: 49.2827, lng: 123.1207};
+                  // The map, centered at Uluru
+                  var map = new google.maps.Map(
+                      document.getElementById('map'), {zoom: 4, center: vancouver});
+                  // The marker, positioned at Uluru
+                  var marker = new google.maps.Marker({position: vancouver, map: map});
+                }
+            </script>
+            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBbEFhlN5OP-mrz7d5L9Dvr2x-mNhFxmCU&callback=initMap"
+            async defer></script> -->
+
+            <!-- new maps javascript api code 
+            AIzaSyBbEFhlN5OP-mrz7d5L9Dvr2x-mNhFxmCU -->
+            
+        <script src="script.js"></script>
+    </body>
+</html>

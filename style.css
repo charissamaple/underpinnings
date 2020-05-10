@@ -1,0 +1,503 @@
+/* Always set the map height explicitly to define the size of the div
+* element that contains the map. */
+#map {
+    height: 100%;
+}
+/* Optional: Makes the sample page fill the window. */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+p{
+    font-size: 0.8em;
+    font-family: Roboto;
+    color: #573933;
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+
+#description {
+    font-family: Roboto;
+    font-size: 15px;
+    font-weight: 300;
+}
+
+#infowindow-content .title {
+    font-weight: bold;
+}
+
+#infowindow-content {
+    display: none;
+}
+
+#map #infowindow-content {
+    display: inline;
+}
+
+/************************************** SEARCH BAR *******************************/
+
+.pac-card {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+
+    width: 35vw;
+    height: 60px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+    border-radius: 3px;
+    background-color: #fff;
+    font-family: Roboto;
+}
+.pac-controls {
+    display: inline-block;
+    padding: 5px 11px;
+}
+.pac-controls label {
+    font-family: Roboto;
+    font-size: 13px;
+    font-weight: 300;
+}
+#searchBox {
+    background-color: #fff;
+    font-family: Roboto;
+    font-size: 15px;
+    font-weight: 300;
+    padding: 0 11px 0 13px;
+    text-overflow: ellipsis;
+    border: none;
+    border-width: none;
+}
+#pac-input:focus {
+    border-color: #4d90fe;
+}
+::-webkit-input-placeholder{
+    color: #aaa;
+}
+::-moz-placeholder { /* Firefox 19+ */
+    color: #aaa;
+}
+:-ms-input-placeholder { /* IE 10+ */
+    color: #aaa;
+}
+:-moz-placeholder { /* Firefox 18- */
+    color: #aaa;
+}
+
+/************************************** SEARCHBOX CONTROLS *******************************/
+#searchBox-controls{
+    position: absolute;
+
+    top: 50%;
+    right: 40%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+
+    width: 8vw;
+    height: 60px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    border-radius: 3px;
+    background-color: none;
+    font-family: Roboto;
+
+    display: inline-flex;
+
+    /* border: black solid 1px; */
+}
+#searchBox-controls div{
+    width: 50px;
+    height: 30px;
+    text-align: center;
+    margin-top: 15px;
+    padding: 0 12px;
+    /* border: black solid 1px; */
+}
+#search-icon{
+    border-right: solid 1px #aaa;
+
+    background: url(images/magnifyer.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+#question{
+    background: url(images/question.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    transition: ease .2s;
+
+}
+#question:hover{
+    opacity: 0.7;
+    cursor: pointer;
+    transition: ease .2s;
+}
+
+#title {
+    color: #fff;
+    background-color: #4d90fe;
+    font-size: 25px;
+    font-weight: 500;
+    padding: 6px 12px;
+}
+#target {
+    width: 345px;
+}
+
+
+/************************************** CONTROLS *******************************/
+
+
+/************************************** HOME PAGE *******************************/
+body{
+    background-color: none;
+    /* background: -webkit-linear-gradient(rgba(173, 230, 255, 0.6), rgba(255, 218, 206, 0),rgba(150, 96, 79, 0.521), rgba(150, 96, 79, 0.651)); */
+}
+@font-face{
+    font-family: "Chobani";
+    src: url("fonts/ChobaniSerifWeb-Regular.otf");
+}
+#main-container{
+    text-align: center;
+}
+#main-container h1{
+    font-family: "Chobani", Helvetica, sans-serif;
+    font-weight: normal;
+    color: #573933;
+
+    background-color: none;
+    position: absolute;
+    top: 37%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    font-size: 32px;
+}
+
+#question-popup{
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+
+    width: 35vw;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+    border-radius: 3px;
+    background-color: #fffaf4d5;
+
+    font-size: 1rem;
+    font-family: Roboto;
+    color: #573933;
+    padding: 10px 20px;
+    margin-top: 90px;
+
+    visibility: hidden;
+    opacity: 0;
+    transition: ease .3s;
+}
+#question-popup.active{
+    visibility: visible;
+    opacity: 1;
+    transition: ease .3s;
+}
+#question-popup.inactive{
+    visibility: hidden;
+}
+.footer{
+    position: absolute;
+    bottom: 2%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    width: 330px;
+}
+.footer p, img{
+    padding: 2px;
+    margin: 0;
+    font-size: 0.7rem;
+}
+
+/*************************** QUESTION BOXES *******************************/
+
+.prompt-containers{
+    position: absolute;
+
+    top:50%;
+    left:50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+
+    width: 35vw;
+    height: 250px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    padding: 3vw;
+
+    /* box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+    border-radius: 3px;
+    background-color: #fff; */
+}
+.prompt-controls{
+    justify-content: space-between;
+    display: flex;
+}
+.back, .forward{
+    width: 20px;
+    z-index: 20;
+    margin-top: 20px;
+}
+
+.prompt-containers h3 {
+    text-align: left;
+    font-family: "Chobani", Helvetica, sans-serif;
+    font-weight: normal;
+    color: #573933;
+    margin: 0;
+    font-size: 1.5rem;
+    padding-bottom: 1rem;
+}
+
+/*************************** Prompts *******************************/
+
+#whatCall, #shareStory, #wouldName, #whyShare{
+    visibility: visible;
+    opacity: 1;
+    height: 80%;
+    position: fixed;
+    width: 29vw;
+
+    position: absolute;
+
+    top:50%;
+    left:50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+
+    width: 35vw;
+    height: 250px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    padding: 3vw;
+
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+    border-radius: 3px;
+    background-color: #fff;
+}
+.prompt-containers h4{
+    font-family: 'Roboto Light';
+    font-weight: normal;
+    font-size: 0.8rem;
+    color: #aaa;
+    margin: 0;
+    padding-bottom: 1rem;
+
+}
+#place, #name{
+    width: 100%;
+    height: 5vh;
+    border: none;
+    border-bottom: solid 1px #aaa;
+}
+#story, #why{
+    width: 27vw;
+    height: 100px;
+    border: none;
+    border: solid 0.5px #aaa;
+
+    padding: 0 10px;
+}
+#story.placeholder{
+    overflow: wrap;
+}
+
+/*************************** Toggle mode *******************************/
+
+.toggle-mode{
+    background: #fff;
+    border: 2px solid #fff;
+    border-radius: 3px;
+    box-shadow: 0 2px 6px rgba(0,0,0,.3);
+    cursor: pointer;
+    margin-bottom: 22px;
+    text-align: center;
+
+    color: rgb(25,25,25);
+    font-family: 'Roboto';
+    font-size: 16px;
+    line-height: 38px;
+
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    display: flex;
+}
+#contribute, #explore{
+    padding: 0 15px;
+    margin: 4px 0;
+}
+#contribute{
+    border-right: solid rgb(201, 201, 201) 1px;
+}
+
+/*************************** Fusion *******************************/
+
+#fusion{
+    position: fixed;
+    overflow: hidden;
+}
+
+
+#submit{
+    font-family: 'Roboto';
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    color: #573933;
+    border-radius: 5px;
+    padding: 8px;
+    transition: ease .2s;
+    border-width: 0;
+}
+button{
+    font-family: 'Roboto';
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    color: #573933;
+    border-radius: 5px;
+    padding: 5px;
+    margin-top: 10px;
+
+    border: #5739334d solid 1px;
+
+    transition: ease .2s;
+}
+button:hover, #submit:hover{
+    color: #ffffff;
+    border-radius: 5px;
+    padding: 5px;
+    background: #573933;
+    border: #573933 solid 1px;
+
+    transition: ease .7s;
+}
+
+button{
+    padding: none;
+}
+
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    white-space:pre-line;  
+    position:relative;
+    vertical-align: top;    
+}
+
+#overlay{
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    background: -webkit-linear-gradient(rgba(255, 255, 255, 0.527), rgba(255, 243, 211, 0.568), rgba(255, 228, 206, 0.658));
+}
+
+
+#explore-popup{
+    position: absolute;
+    z-index: 100;
+
+    top:50%;
+    left:50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+
+    background: -webkit-linear-gradient(rgba(255, 255, 255, 0.322), rgba(255, 242, 232, 0.671));
+    height: 100%;
+    width: 100%;
+
+    text-align: center;
+}
+
+#popup-box{
+    position: absolute;
+    z-index: 100;
+
+    top:50%;
+    left:50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+
+    width: 35vw;
+    height: 250px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    padding: 3vw;
+
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+    border-radius: 3px;
+    background-color: #fff;
+
+    font-family: 'Roboto Light';
+    font-size: 1rem;
+}
+#popup-box h1{
+    font-family: "Chobani", Helvetica, sans-serif;
+    font-weight: normal;
+    color: #573933;
+    margin: 0;
+    font-size: 1.5rem;
+    padding-bottom: 1rem;
+
+    transition: ease .7s;
+}
+#explore-popup.active{
+    display: none;
+    transition: ease .7s;
+}
+#goAway{
+    z-index: 110;
+    position: absolute;
+
+    top:50%;
+    left:50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+
+    margin-top: 80px;
+    font-family: 'Roboto';
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    color: #573933;
+    border-radius: 5px;
+    padding: 10px;
+    border: #5739334d solid 1px;
+
+    transition: ease .7s;
+}
+#goAway:hover{
+    color: #ffffff;
+    border-radius: 5px;
+    padding: 10px;
+    background: #573933;
+    border: #573933 solid 1px;
+
+    transition: ease .7s;
+}
+
+
+
+
+/* //////////////////redo  */
+iframe{
+    width: 100%;
+    height: 100%;
+}
